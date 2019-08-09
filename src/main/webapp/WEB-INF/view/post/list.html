@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Wellcome Post</h1>
+
+<h3><a th:href="@{/post/create}"> Create New Post</a></h3>
+<form>
+    <input type="text" name="category">
+    <input type="submit" value="seach">
+</form>
+
+<table border="1">
+    <tr>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="post : ${posts}">
+        <tr>
+            <th><a th:href="@{/post/view/__${post.getId()}__}" th:text="${post.category}"></a></th>
+            <th><a th:href="@{/post/edit/__${post.getId()}__}">Edit</a></th>
+            <th><a th:href="@{/post/delete/__${post.getId()}__}">Delete</a></th>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

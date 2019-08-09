@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3><a th:href="@{/post}">Back to Post</a></h3>
+<h1> Update Post</h1>
+<th:block th:if="${message}">
+    <h3 th:text="${message}"></h3>
+</th:block>
+<form th:action="@{/post-edit}" th:object="${post}" method="post">
+    <th>New ID</th>
+    <input type="text" th:field="*{id}">
+    <th>New Category</th>
+    <input type="text" th:field="*{category}">
+    <input type="submit" value="update">
+</form>
+</body>
+</html>
